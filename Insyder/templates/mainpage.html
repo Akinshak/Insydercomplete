@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Insyder Scope
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport", content="width=device-width initial-scale=1.0">
+        <meta name="description", content="">
+        <meta name="author", content="">
+    </head>
+    <body>
+        <nav>
+            <div>
+                <h1>Insyder</h1>
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <a href="{{url_for('logout')}}">Logout</a>
+                    </li>
+                    <li>
+                        <a href="">About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <header>
+            <div>
+                <div>
+                    
+                    {% for post in all_posts %}
+                    <a href="{{url_for('show_post', post_id=post.id)}}">
+                        <h2> {{post.title }}</h2>
+
+                    </a>
+                    <p> Posted by {{post.author.firstname}} on  {{post.date}}
+                        {% if current_user== current_user: %}
+                        <a href="{{url_for('delete_post', post_id=post.id)}}">✘</a>
+                        {% endif %}
+                        
+                        
+                    </p>
+                    
+                    {% endfor %}
+                </div>
+            </div>
+            <div>
+                <div>
+                    {% if current_user == current_user: %}
+                    <a href="{{ url_for('add_new_post')}}"> Create Post </a>
+                    {% endif %}
+                </div>
+            </div>
+        </header>
+
+    </body>
+</html>

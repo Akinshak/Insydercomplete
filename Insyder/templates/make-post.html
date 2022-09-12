@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Insyder Scope
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport", content="width=device-width initial-scale=1.0">
+        <meta name="description", content="">
+        <meta name="author", content="">
+    </head>
+    <body>
+        <nav>
+            <div>
+                <h1>Insyder</h1>
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <a href="{{url_for('logout')}}">Logout</a>
+                    </li>
+                    <li>
+                        <a href="">About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+  
+{% import "bootstrap/wtf.html" as wtf%}
+        <header>
+            <div>
+                <div>
+                    <div>
+                        {% if is_edit: %}
+                        <h1> Edit Post </h1>
+                        {% else: %}
+                        <h1> New Post </h1>
+                        {% endif %}
+                        
+                        <span> Goodluck Writing a Good Post!</span>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <section>
+            <div>
+                <div>
+                    {{ ckeditor.load() }}
+                    {{ ckeditor.config(name='body') }}
+                    {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"})}}
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>

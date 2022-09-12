@@ -1,0 +1,14 @@
+html{
+
+}
+body{
+    scroll-behavior: smooth;
+
+}
+nav.nav-bar{
+    background-color: blueviolet;
+}
+div.one{
+    margin: auto;
+    color: blue;
+}
